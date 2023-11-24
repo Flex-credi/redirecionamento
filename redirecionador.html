@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #countdown {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Redirecionamento em andamento...</h1>
+    <p>Por favor, aguarde.</p>
+    <p id="countdown">Tempo restante: <span id="timer">1</span> segundos</p>
+
+    <script>
+        // Defina o tempo desejado em segundos
+        var tempoRestante = 1;
+
+        // Função para atualizar o temporizador
+        function atualizarTemporizador() {
+            document.getElementById('timer').innerHTML = tempoRestante;
+            if (tempoRestante == 0) {
+                // Redireciona para a outra página após o tempo expirar
+                window.location.href = 'https://celularescomdesconto.netlify.app/';
+            } else {
+                tempoRestante--;
+                setTimeout(atualizarTemporizador, 1000);
+            }
+        }
+
+        // Inicie o temporizador ao carregar a página
+        window.onload = function () {
+            atualizarTemporizador();
+        };
+    </script>
+
+</body>
+</html>
